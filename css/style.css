@@ -1,0 +1,179 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700 !important;
+}
+
+h1 {
+  font-size: 29px;
+  color: #aaa;
+  padding: 60px 0px 30px;
+}
+h4,h5,h6{
+  font-family: 'Titillium Web', sans-serif;
+}
+.form-body {
+  border-radius: 6px;
+  border: solid 3px transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, rgb(6, 60, 236), rgb(4, 233, 138));
+  /* make color take all inside with a border  */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+.form-body h2 {
+  font-size: 24px;
+}
+.form-gp {
+  padding: 40px 100px;
+}
+
+input[type="text"] {
+  border: none;
+
+  border-bottom: 2px solid rgb(209, 205, 205);
+  border-radius: 0;
+  background-color: transparent;
+}
+input[type="text"]:focus,
+input[type="text"]:hover {
+  border: 3px transparent;
+  border-style: none none solid none;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, rgb(6, 60, 236), rgb(4, 233, 138));
+  /* make color take all inside with a border  */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: none;
+}
+
+.row0f {
+  border-radius: 6px;
+  border: solid 3px transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, rgb(6, 60, 236), rgb(4, 233, 138));
+  /* make color take all inside with a border  */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  margin-top: 40px;
+
+  padding: 20px 10px 10px;
+}
+.list .table {
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+i {
+  font-size: 23px;
+  margin: 0 3px;
+}
+.eye {
+  color: black;
+}
+.edit {
+  border: none;
+  background-color: transparent;
+}
+.edit:hover {
+  color: #007bff;
+}
+.trash {
+  border: none;
+  background-color: transparent;
+}
+.trash:hover {
+  color: red;
+}
+
+.red {
+  color: red !important;
+}
+.green {
+  color: green !important;
+}
+
+/* width */
+.list::-webkit-scrollbar {
+  width: 10px;
+}
+.list {
+  margin-top: 30px;
+  padding: 10px;
+  overflow-y: scroll;
+  height: 100vh;
+}
+/* Track */
+.list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+
+.list::-webkit-scrollbar-thumb {
+  background: rgb(6, 60, 236);
+  border-radius: 10px;
+}
+
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: rgb(4, 233, 138);
+}
+
+.modal-content{
+  border: solid 3px transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, rgb(255, 0, 0), rgb(255, 221, 28));
+  /* make color take all inside with a border  */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.h1-2 {
+  
+  color: black;
+  border: solid;
+  
+  border-left: 5px;
+  width: 0%;
+  white-space: nowrap;
+  display: inline-block;
+  overflow: hidden;
+  border-bottom: 3px;
+  border: solid 3px transparent;
+  border-top: 0px;
+  border-left: 0;
+  border-right: 0;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, rgb(6, 60, 236), rgb(4, 233, 138));
+  /* make color take all inside with a border  */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.h1-2 {
+  animation-name: h-1;
+  animation-duration: 5s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  
+}
+
+
+@keyframes h-1 {
+  0% {
+    
+    width: 0;
+  }
+  
+
+  100% {width: 340px;
+    
+  }
+}
+.Iname{
+  position: absolute;
+  top: 10px;
+    left: -30px;
+    color: #aaa;
+}

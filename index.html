@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="heder mx-4">
+        <h1>Bookmarker</h1>
+      </div>
+      <hr />
+      <div class="form-body mx-4 pt-3">
+        <!-- - Heder In Form GP -- -->
+        <div class="text-center ">
+          <div class="h1-2 mt-4">
+            <h2 class="mb-0">Bookmark your favorite sites</h2>
+          </div>
+        </div>
+
+        <div class="form-gp text-center">
+          <div class="form-group">
+            <div class="position-relative">
+              <i class="far fa-check-circle Iname InameName"></i>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              placeholder="Site Name"
+              aria-describedby="helpId"
+            />
+            </div>
+            
+            <small id="nameHelp" class="form-text text-muted text-left"
+              >ex: Google</small
+            >
+          </div>
+          <div class="form-group">
+            <div class="position-relative">
+              <i class="far fa-check-circle Iname InameU"></i>
+            <input
+              type="text"
+              id="url"
+              class="form-control"
+              placeholder="Site URL"
+              aria-describedby="helpId"
+            />
+            </div>
+            <small id="urlHelp" class="form-text text-muted text-left"
+              >ex: Google.com</small
+            >
+          </div>
+          <div class="form-group">
+            <div class="position-relative">
+              <i class="far fa-check-circle Iname InameNote"></i>
+            <input
+              type="text"
+              id="note"
+              class="form-control "
+              placeholder="Note"
+              aria-describedby="helpId"
+            />
+          </div>
+            <small id="noteHelp" class="form-text text-muted text-left "
+              >ex: containe JS Proplems
+            </small>
+          </div>
+          <button
+            id="submit"
+            type="submit"
+            class="btn btn-primary"
+            data-toggle="modal"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+      <div class="row pt-5 m-4">
+        <div class="col-6 pl-5">
+          <div class="form-group text-center m-auto">
+
+            <input
+              placeholder="Search "
+              onkeyup="search(this.value)"
+              type="text"
+              class="form-control w-75"
+              id="sersh"
+              onkeyup=""
+            />
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-group w-50 text-center">
+            
+            <select id="inputState" class="form-control">
+              <option selected>Site Name</option>
+              <option>Site URL</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ----- JSON Show ----- -->
+
+      <div class="list mx-4" id="list">
+        <div class="table"></div>
+      </div>
+      <hr />
+      <div class="mx-4 d-flex">
+        <h7>© 2021 Bookmarker by AhmedGhonim.</h7>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title ml-auto red" id="exampleModalLabel">
+              warning !
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            please insert NameSite and URL
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-danger m-auto w-25"
+              data-dismiss="modal"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="./js/main.js"></script>
