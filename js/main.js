@@ -2,6 +2,7 @@
 
 
 
+/* ---- Var Declartions --- */
 
 var nameval = document.getElementById('name');
 var url = document.getElementById('url');
@@ -16,25 +17,34 @@ var tybOfSearch = document.getElementById("inputState")
 
 var h3 = document.getElementById('h3')
 
+/* ---- Var Declartions --- */
 
-if (localStorage.getItem("myStorage") == null) {
+
+
+
+if (localStorage.getItem("myStorage") == null) {// for avoid eror cuz of null of array wheen is imptey
     arrStor = [];
 } else {
     arrStor = JSON.parse(localStorage.getItem("myStorage"));
     show();
 }
 
+/* ------ Validation ------ */
 
 var valedName = /^[A-Za-z0-9\.]{2,15}$/
 var valedEmail = /^[A-Za-z]+[0-9]*(\.com|\.net|\.rg)$/
 var valedNote = /^[A-Za-z0-9.]{3,15}$/
 
+/* ------ Validation ------ */
 
-function add() {
+
+function add() {// submit function for button
+
     var valN = nameval.value;
     var valU = url.value;
     var valNot = note.value;
 
+    // avoid empty insert of user
     if (valN == "" && valU == "") {
         submit.setAttribute("data-target", "#exampleModal")
     } else {
@@ -42,48 +52,63 @@ function add() {
         pushing(valN, valU, valNot)
     }
 
+    /* ----- Display Array ---- */
 
     show()
 
+    /* ----- Display Array ---- */
+
+    /* ------ Reset Input ----- */
+
     clear()
-    console.log(arrStor);
+
+    /* ------ Reset Input ----- */
+
+    // console.log(arrStor);
 }
 
 function pushing(v1, v2, v3) {
     arrStor.push({
         site: v1,
         url: v2,
-        note:v3,
+        note: v3,
     })
 }
 
-function clear() {
+function clear() { //reset input
     nameval.value = '';
     url.value = '';
     note.value = '';
     sersh.value = '';
 }
 
-function show() {
+function show() { //display array
+
     var newarr = ``
+
     for (let i = 0; i < arrStor.length; i++) {
         //lazm ngm3 kol el data l2n htt3red mra wa7da fe el refresh
-        newarr += JSOND(arrStor[i].site,arrStor[i].note ,arrStor[i].url, i, i)
+        newarr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
     }
+
     table.innerHTML = newarr
+
     localStorage.setItem("myStorage", JSON.stringify(arrStor))
 }
 
-/* ---- Updat Function ---- */
 var avelIndex;
+/* ---- Updat Function ---- */
+
 function update(index) {
     retrnVla(index)
-    console.log(arrStor[index]);
     avelIndex = index;
+
     submit.onclick = btnubdate
+    document.querySelector("html").scrollTop=10
 }
 
-function retrnVla(index) {
+
+function retrnVla(index) {// retern value to input to mak update
     nameval.value = arrStor[index].site;
     url.value = arrStor[index].url
     note.value = arrStor[index].note
@@ -120,14 +145,14 @@ function search(val) {
             for (let i = 0; i < arrStor.length; i++) {
                 var indexr = arrStor[i]["indexr"] = i
                 if (arrStor[i].site.includes(val)) {
-                    arr += JSOND(arrStor[i].site,arrStor[i].note , arrStor[i].url, i, i)
+                    arr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
                 }
             }
         } else {
             for (let i = 0; i < arrStor.length; i++) {
                 var indexr = arrStor[i]["indexr"] = i
                 if (arrStor[i].url.includes(val)) {
-                    arr += JSOND(arrStor[i].site,arrStor[i].note , arrStor[i].url, i, i)
+                    arr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
                 }
 
             }
@@ -149,7 +174,7 @@ var sersh = document.getElementById("sersh")
 
 
 nameval.onblur = function () {
-    if (!valedName.test(nameval.value)) { // not site email
+    if (!valedName.test(nameval.value)) { // not site user
         document.getElementById("nameHelp").textContent = "Sorry, only letters (a-z) , numbers (0-9) not less thna (2), and periods (.) are allowed .";
         document.getElementById("nameHelp").classList.add('red')
         document.querySelector(".InameName").classList.remove('green')
@@ -157,7 +182,7 @@ nameval.onblur = function () {
     } else {
         document.querySelector(".InameName").classList.add('green')
         document.getElementById("nameHelp").textContent = "";
-        
+
     }
 };
 
@@ -181,16 +206,16 @@ note.onblur = function () {
         document.querySelector(".InameNote").classList.remove('green')
 
 
-        
+
     } else {
         document.querySelector(".InameNote").classList.add('green')
         document.getElementById("noteHelp").textContent = "";
-        
+
     }
 };
 
 
-function JSOND(h3,h5,a, update, delet) {
+function JSOND(h3, h5, a, update, delet) {
     return `<div class="row m-4 row0f">
         <div class="w-100 col-8">
         <div class="row align-items-lg-baseline">  
