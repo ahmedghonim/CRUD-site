@@ -104,7 +104,7 @@ function update(index) {
     avelIndex = index;
 
     submit.onclick = btnubdate
-    document.querySelector("html").scrollTop=10
+    document.querySelector("html").scrollTop = 10
 }
 
 
@@ -127,20 +127,20 @@ function btnubdate() {
 }
 
 
-var btnmode =document.getElementById("deletbton")
+var btnmode = document.getElementById("deletbton")
 
 /* ---- Delet Function ---- */
 
 function delet(index) {
     console.log(index);
-    
+
     function doIt() {
         arrStor.splice(index, 1)
         show()
         console.log(index);
     }
-    
-    btnmode.onclick=doIt
+
+    btnmode.onclick = doIt
 }
 
 
