@@ -149,17 +149,25 @@ function search(val) {
     tybeOfSearchf = () => {
         var i;
         i = tybOfSearch.selectedIndex
-        var arr = ``
+        var arr = ``;
+        var TorF;
         if (i == 0) {
             for (let i = 0; i < arrStor.length; i++) {
-                var indexr = arrStor[i]["indexr"] = i
-                if (arrStor[i].site.includes(val)) {
-                    arr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
+                
+                    arrStor[i]["indexr"] = i
+                    if (arrStor[i].site.includes(val)) {
+                        arr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
+                        console.log(arrStor[i].site.includes(val));
+                        TorF=true
+                    }else{
+
+                    TorF=false
                 }
+                
             }
         } else {
             for (let i = 0; i < arrStor.length; i++) {
-                var indexr = arrStor[i]["indexr"] = i
+                arrStor[i]["indexr"] = i
                 if (arrStor[i].url.includes(val)) {
                     arr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
                 }
@@ -167,7 +175,14 @@ function search(val) {
             }
 
         }
-        table.innerHTML = arr
+        if (TorF) {
+            
+            table.innerHTML = arr
+        }else{
+
+            table.innerHTML=`<h2 class="text-center red"> Element is not exist !! </h2>`
+
+        }
     }
 
 
