@@ -43,9 +43,8 @@ function add() {// submit function for button
     var valN = nameval.value;
     var valU = url.value;
     var valNot = note.value;
-
-    // avoid empty insert of user
-    if (valN == "" && valU == "") {
+    
+    if (valN == "" || valU == "" ||!valedEmail.test(url.value)||!valedName.test(nameval.value) ) {
         submit.setAttribute("data-target", "#exampleModal")
     } else {
         submit.removeAttribute("data-target", "#exampleModal")
@@ -63,7 +62,10 @@ function add() {// submit function for button
     clear()
 
     /* ------ Reset Input ----- */
-
+    document.querySelector(".InameName").classList.remove('green')
+    document.querySelector(".InameU").classList.remove('green')
+    document.querySelector(".InameNote").classList.remove('green')
+    
     // console.log(arrStor);
 }
 
@@ -195,7 +197,6 @@ var sersh = document.getElementById("sersh")
 nameval.onkeyup = function () {
     if (valedName.test(nameval.value)) { // not site user
         document.querySelector(".InameName").classList.add('green')
-        document.getElementById("nameHelp").textContent = "";
     } else {
         document.querySelector(".InameName").classList.remove('green')
     }
@@ -204,53 +205,50 @@ nameval.onblur = function () {
     if (!valedName.test(nameval.value)) { // not site user
         document.getElementById("nameHelp").textContent = "Sorry, only letters (a-z) , numbers (0-9) not less thna (2), and periods (.) are allowed .";
         document.getElementById("nameHelp").classList.add('red')
-
-
+        document.querySelector(".InameName").classList.remove('green')
     } else {
         document.getElementById("nameHelp").textContent = "";
 
     }
 };
 
-
 url.onkeyup = function () {
     if (valedEmail.test(url.value)) { // not site user
         document.querySelector(".InameU").classList.add('green')
-        document.getElementById("urlHelp").textContent = "";
     } else {
         document.querySelector(".InameU").classList.remove('green')
     }
 
 };
+
 url.onblur = function () {
     if (!valedEmail.test(url.value)) { // not site email
         document.getElementById("urlHelp").textContent = "Sorry, only letters (a-z), numbers (0-9), and should end with (.com .net .eg) .";
         document.getElementById("urlHelp").classList.add('red')
-
+        document.querySelector(".InameU").classList.remove('green')
     } else {
 
         document.getElementById("urlHelp").textContent = "";
-
     }
 };
 
 note.onkeyup = function () {
     if (valedNote.test(note.value)) { // not site user
         document.querySelector(".InameNote").classList.add('green')
-        document.getElementById("noteHelp").textContent = "";
     } else {
         document.querySelector(".InameNote").classList.remove('green')
     }
 };
+
 note.onblur = function () {
     if (!valedNote.test(note.value)) { // Note
         document.getElementById("noteHelp").textContent = "Prefer Add Note Not Less Than (3) Not More Than (25)";
         document.getElementById("noteHelp").classList.add('green')
+        document.querySelector(".InameNote").classList.remove('green')
     } else {
         document.getElementById("noteHelp").textContent = "";
     }
 };
-
 
 function JSOND(h3, h5, a, update, delet) {
     return `<div class="row m-4 row0f">
