@@ -2,22 +2,28 @@
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700 !important;
   scroll-behavior: smooth;
+  font-family: "Titillium Web", sans-serif;
+}
+body{
+  background-image: url(../images/elnaz-asadi-XCXP1rLfNJE-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-position:center center ;
+  background-size: 100%;
+  background-attachment: fixed;
+  
 }
 
 h1 {
   font-size: 29px;
-  color: #aaa;
+  color: #a1a19d;
   padding: 60px 0px 30px;
-}
-h4,h5,h6{
-  font-family: 'Titillium Web', sans-serif;
 }
 
 .form-body {
   border-radius: 6px;
   border: solid 3px transparent;
   background-image: linear-gradient(white, white),
-    linear-gradient(to right, rgb(6, 60, 236), rgb(4, 233, 138));
+    linear-gradient(to right, #CCD1D9, #4F5359);
   /* make color take all inside with a border  */
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -52,7 +58,7 @@ input[type="text"]:hover {
   border-radius: 6px;
   border: solid 3px transparent;
   background-image: linear-gradient(white, white),
-    linear-gradient(to right, rgb(6, 60, 236), rgb(4, 233, 138));
+  linear-gradient(to right, #CCD1D9, #4F5359);
   /* make color take all inside with a border  */
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -110,18 +116,16 @@ i {
   border-radius: 10px;
 }
 
-
 .list::-webkit-scrollbar-thumb {
-  background: rgb(6, 60, 236);
+  background: #26221E;
   border-radius: 10px;
 }
 
-
 .list::-webkit-scrollbar-thumb:hover {
-  background: rgb(4, 233, 138);
+  background: #4F5359;
 }
 
-.modal-content{
+.modal-content {
   border: solid 3px transparent;
   background-image: linear-gradient(white, white),
     linear-gradient(to right, rgb(255, 0, 0), rgb(255, 221, 28));
@@ -131,10 +135,9 @@ i {
 }
 
 .h1-2 {
-  
   color: black;
   border: solid;
-  
+
   border-left: 5px;
   width: 0%;
   white-space: nowrap;
@@ -154,28 +157,26 @@ i {
 
 .h1-2 {
   animation-name: h-1;
-  animation-duration: 5s;
+  animation-duration: 3s;
   animation-direction: normal;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  
 }
 
 /* this for animation of heder */
 @keyframes h-1 {
   0% {
-    
     width: 0;
   }
-  
 
-  100% {width: 340px;
-    
+  100% {
+    width: 275px;
   }
 }
-.Iname{
+.Iname {
   position: absolute;
   top: 10px;
-    left: -30px;
-    color: #aaa;
+  left: -30px;
+  color: #aaa;
 }
+

@@ -127,13 +127,22 @@ function btnubdate() {
 }
 
 
+var btnmode =document.getElementById("deletbton")
 
 /* ---- Delet Function ---- */
-function delet(index) {
-    arrStor.splice(index, 1)
-    show()
 
+function delet(index) {
+    console.log(index);
+    
+    function doIt() {
+        arrStor.splice(index, 1)
+        show()
+        console.log(index);
+    }
+    
+    btnmode.onclick=doIt
 }
+
 
 function search(val) {
 
@@ -166,12 +175,7 @@ function search(val) {
 
 }
 
-
 var sersh = document.getElementById("sersh")
-
-
-
-
 
 nameval.onblur = function () {
     if (!valedName.test(nameval.value)) { // not site user
@@ -225,8 +229,8 @@ function JSOND(h3, h5, a, update, delet) {
         </div>
         <div class="w-100 col-4">
         <a h href="http://${a}"  target="_blank" class="eye" ><abbr title="http://${a}"><i class="far fa-eye "></i></abbr></a> 
-        <button onclick="update(${update})" title="Edit"type="button" class="edit"><i class="far fa-edit "></i></button>
-        <button onclick="delet(${delet})" title="Delet" type="button" class="trash"><i class="fas fa-trash "></i></button>
+        <button onclick="update(${update})"  title="Edit"type="button" class="edit"><i class="far fa-edit "></i></button>
+        <button onclick="delet(${delet})" data-toggle="modal" data-target="#exampleModal2" title="Delet" type="button" class="trash"><i class="fas fa-trash "></i></button>
         </div>
         </div>`
 }
