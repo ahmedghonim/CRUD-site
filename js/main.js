@@ -153,17 +153,17 @@ function search(val) {
         var TorF;
         if (i == 0) {
             for (let i = 0; i < arrStor.length; i++) {
-                
-                    arrStor[i]["indexr"] = i
-                    if (arrStor[i].site.includes(val)) {
-                        arr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
-                        console.log(arrStor[i].site.includes(val));
-                        TorF=true
-                    }else{
 
-                    TorF=false
+                arrStor[i]["indexr"] = i
+                if (arrStor[i].site.includes(val)) {
+                    arr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
+                    console.log(arrStor[i].site.includes(val));
+                    TorF = true
+                } else {
+
+                    TorF = false
                 }
-                
+
             }
         } else {
             for (let i = 0; i < arrStor.length; i++) {
@@ -176,11 +176,11 @@ function search(val) {
 
         }
         if (TorF) {
-            
-            table.innerHTML = arr
-        }else{
 
-            table.innerHTML=`<h2 class="text-center red"> Element is not exist !! </h2>`
+            table.innerHTML = arr
+        } else {
+
+            table.innerHTML = `<h2 class="text-center red"> Element is not exist !! </h2>`
 
         }
     }
@@ -192,44 +192,62 @@ function search(val) {
 
 var sersh = document.getElementById("sersh")
 
+nameval.onkeyup = function () {
+    if (valedName.test(nameval.value)) { // not site user
+        document.querySelector(".InameName").classList.add('green')
+        document.getElementById("nameHelp").textContent = "";
+    } else {
+        document.querySelector(".InameName").classList.remove('green')
+    }
+};
 nameval.onblur = function () {
     if (!valedName.test(nameval.value)) { // not site user
         document.getElementById("nameHelp").textContent = "Sorry, only letters (a-z) , numbers (0-9) not less thna (2), and periods (.) are allowed .";
         document.getElementById("nameHelp").classList.add('red')
-        document.querySelector(".InameName").classList.remove('green')
+
 
     } else {
-        document.querySelector(".InameName").classList.add('green')
         document.getElementById("nameHelp").textContent = "";
 
     }
 };
 
 
+url.onkeyup = function () {
+    if (valedEmail.test(url.value)) { // not site user
+        document.querySelector(".InameU").classList.add('green')
+        document.getElementById("urlHelp").textContent = "";
+    } else {
+        document.querySelector(".InameU").classList.remove('green')
+    }
+
+};
 url.onblur = function () {
     if (!valedEmail.test(url.value)) { // not site email
         document.getElementById("urlHelp").textContent = "Sorry, only letters (a-z), numbers (0-9), and should end with (.com .net .eg) .";
         document.getElementById("urlHelp").classList.add('red')
-        document.querySelector(".InameU").classList.remove('green')
+
     } else {
-        document.querySelector(".InameU").classList.add('green')
+
         document.getElementById("urlHelp").textContent = "";
 
     }
 };
 
+note.onkeyup = function () {
+    if (valedNote.test(note.value)) { // not site user
+        document.querySelector(".InameNote").classList.add('green')
+        document.getElementById("noteHelp").textContent = "";
+    } else {
+        document.querySelector(".InameNote").classList.remove('green')
+    }
+};
 note.onblur = function () {
     if (!valedNote.test(note.value)) { // Note
         document.getElementById("noteHelp").textContent = "Prefer Add Note Not Less Than (3) Not More Than (25)";
         document.getElementById("noteHelp").classList.add('green')
-        document.querySelector(".InameNote").classList.remove('green')
-
-
-
     } else {
-        document.querySelector(".InameNote").classList.add('green')
         document.getElementById("noteHelp").textContent = "";
-
     }
 };
 
