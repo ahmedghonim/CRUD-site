@@ -31,7 +31,7 @@ if (localStorage.getItem("myStorage") == null) {// for avoid eror cuz of null of
 
 /* ------ Validation ------ */
 
-var valedName = /^[A-Za-z0-9\.]{2,15}$/
+var valedName = /^[A-Za-z0-9\.]{2,25}$/
 var valedEmail = /^[./:A-Za-z0-9]+(\.com|\.net|\.eg)(.)?$/
 var valedNote = /^[A-Za-z0-9.]{3,15}$/
 
