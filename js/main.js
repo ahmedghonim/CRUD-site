@@ -32,7 +32,7 @@ if (localStorage.getItem("myStorage") == null) {// for avoid eror cuz of null of
 /* ------ Validation ------ */
 
 var valedName = /^[A-Za-z0-9\.]{2,15}$/
-var valedEmail = /^[A-Za-z]+[0-9]*(\.com|\.net|\.rg)$/
+var valedEmail = /^[./:A-Za-z0-9]+(\.com|\.net|\.eg)(.)?$/
 var valedNote = /^[A-Za-z0-9.]{3,15}$/
 
 /* ------ Validation ------ */
@@ -43,8 +43,8 @@ function add() {// submit function for button
     var valN = nameval.value;
     var valU = url.value;
     var valNot = note.value;
-    
-    if (valN == "" || valU == "" ||!valedEmail.test(url.value)||!valedName.test(nameval.value) ) {
+
+    if (valN == "" || valU == "" || !valedEmail.test(url.value) || !valedName.test(nameval.value)) {
         submit.setAttribute("data-target", "#exampleModal")
     } else {
         submit.removeAttribute("data-target", "#exampleModal")
@@ -65,11 +65,12 @@ function add() {// submit function for button
     document.querySelector(".InameName").classList.remove('green')
     document.querySelector(".InameU").classList.remove('green')
     document.querySelector(".InameNote").classList.remove('green')
-    
+
     // console.log(arrStor);
 }
 
 function pushing(v1, v2, v3) {
+    console.log(v2);
     arrStor.push({
         site: v1,
         url: v2,
@@ -84,15 +85,25 @@ function clear() { //reset input
     sersh.value = '';
 }
 
+
 function show() { //display array
 
     var newarr = ``
 
     for (let i = 0; i < arrStor.length; i++) {
+        if (!arrStor[i].url.includes("https://")) {
+
+            newarr += JSOND(arrStor[i].site, arrStor[i].note, "https://" + arrStor[i].url, i, i)
+            console.log("hhtp");
+
+        } else {
+            newarr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
+            console.log("no http");
+        }
         //lazm ngm3 kol el data l2n htt3red mra wa7da fe el refresh
-        newarr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
     }
 
+    document.getElementById("lenghtOfIndex").textContent ='# '+arrStor.length
     table.innerHTML = newarr
 
     localStorage.setItem("myStorage", JSON.stringify(arrStor))
@@ -134,7 +145,6 @@ var btnmode = document.getElementById("deletbton")
 /* ---- Delet Function ---- */
 
 function delet(index) {
-    console.log(index);
 
     function doIt() {
         arrStor.splice(index, 1)
@@ -145,6 +155,17 @@ function delet(index) {
     btnmode.onclick = doIt
 }
 
+
+function deletall(index) {
+    if (confirm("you will delet evrey think")) {
+
+        arrStor.splice(index, arrStor.length)
+        show()
+        console.log(index);
+    }
+
+}
+document.getElementById("deletall").onclick = deletall
 
 function search(val) {
 
@@ -161,12 +182,9 @@ function search(val) {
                     arr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
                     console.log(arrStor[i].site.includes(val));
                     TorF = true
-                } else {
-
-                    TorF = false
                 }
-
             }
+
         } else {
             for (let i = 0; i < arrStor.length; i++) {
                 arrStor[i]["indexr"] = i
@@ -177,6 +195,7 @@ function search(val) {
             }
 
         }
+
         if (TorF) {
 
             table.innerHTML = arr
@@ -223,7 +242,7 @@ url.onkeyup = function () {
 
 url.onblur = function () {
     if (!valedEmail.test(url.value)) { // not site email
-        document.getElementById("urlHelp").textContent = "Sorry, only letters (a-z), numbers (0-9), and should end with (.com .net .eg) .";
+        document.getElementById("urlHelp").textContent = "Sorry,enter URL and should end with (.com .net .eg ...) .";
         document.getElementById("urlHelp").classList.add('red')
         document.querySelector(".InameU").classList.remove('green')
     } else {
@@ -259,7 +278,7 @@ function JSOND(h3, h5, a, update, delet) {
         </div>
         </div>
         <div class="w-100 col-4">
-        <a h href="http://${a}"  target="_blank" class="eye" ><abbr title="http://${a}"><i class="far fa-eye "></i></abbr></a> 
+        <a href="${a}" id="linkurl" target="_blank" class="eye" ><abbr title="${a}"><i class="far fa-eye "></i></abbr></a> 
         <button onclick="update(${update})"  title="Edit"type="button" class="edit"><i class="far fa-edit "></i></button>
         <button onclick="delet(${delet})" data-toggle="modal" data-target="#exampleModal2" title="Delet" type="button" class="trash"><i class="fas fa-trash "></i></button>
         </div>

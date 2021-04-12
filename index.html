@@ -42,8 +42,8 @@
             </div>
 
             <small id="nameHelp" class="form-text text-muted text-left"
-              >ex: Google</small
-            >
+              >ex: Google
+            </small>
           </div>
           <div class="form-group">
             <div class="position-relative">
@@ -57,7 +57,7 @@
               />
             </div>
             <small id="urlHelp" class="form-text text-muted text-left"
-              >ex: Google.com</small
+              >ex: Google.com or https://google.com</small
             >
           </div>
           <div class="form-group">
@@ -72,7 +72,7 @@
               />
             </div>
             <small id="noteHelp" class="form-text text-muted text-left"
-              >ex: containe JS Proplems
+              >ex: Search engine
             </small>
           </div>
           <button
@@ -100,16 +100,30 @@
         </div>
 
         <div class="col-6">
-          <div class="form-group w-50 text-center">
-            <select id="inputState" class="form-control">
-              <option selected>Site Name</option>
-              <option>Site URL</option>
-            </select>
+          <div class="row justify-content-between">
+            <div class="form-group w-25 text-center">
+              <select id="inputState" class="form-control">
+                <option selected>Site Name</option>
+                <option>Site URL</option>
+              </select>
+            </div>
+            <div class=" d-flex justify-content-around w-50">
+              <div>
+                <h2 id="lenghtOfIndex" class=" text-danger "></h2>
+              </div>
+              <div>
+                <button id="deletall" class="trash" title="delet all">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- ----- JSON Show ----- -->
+      <!-- --------------------- -->
+      <!--       JSON SHOW       -->
+      <!-- --------------------- -->
 
       <div class="list mx-4" id="list">
         <div class="table"></div>
@@ -119,7 +133,7 @@
         <h7>© 2021 Bookmarker by AhmedGhonim.</h7>
       </div>
     </div>
-    <!-- Modal -->
+    <!-- Modal Empty -->
     <div>
       <div
         class="modal fade"
@@ -160,7 +174,7 @@
         </div>
       </div>
     </div>
-    <!-- Modal -->
+    <!-- Modal Dlet-->
     <div>
       <div
         class="modal fade"
@@ -189,18 +203,18 @@
             <div class="modal-footer border-0">
               <button
                 type="button"
-                class="btn btn-info m-auto w-25"
-                data-dismiss="modal"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
                 class="btn btn-danger m-auto w-25"
                 data-dismiss="modal"
                 id="deletbton"
               >
                 Yes
+              </button>
+              <button
+                type="button"
+                class="btn btn-info m-auto w-25"
+                data-dismiss="modal"
+              >
+                Cancel
               </button>
             </div>
           </div>
