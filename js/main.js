@@ -43,14 +43,37 @@ function add() {// submit function for button
     var valN = nameval.value;
     var valU = url.value;
     var valNot = note.value;
+    var doit = false
 
-    if (valN == "" || valU == "" || !valedEmail.test(url.value) || !valedName.test(nameval.value)) {
-        submit.setAttribute("data-target", "#exampleModal")
-    } else {
+
+    if (valN != "" || valU != "" || valedEmail.test(url.value) || valedName.test(nameval.value)) {
+        for (let i = 0; i < arrStor.length; i++) {
+            if (arrStor[i].site == valN || arrStor[i].url == valU) {
+                doit = true
+                if (arrStor[i].site == valN) {
+
+                    alert("this 'SITE NAME' is oredy exist")
+
+                } if (arrStor[i].url == valU) {
+
+                    alert("this 'URL' is oredy exist")
+
+                }
+                i = arrStor.length
+            }
+        }
+        if (!doit) {
+
+            pushing(valN, valU, valNot)
+        }
+
         submit.removeAttribute("data-target", "#exampleModal")
-        pushing(valN, valU, valNot)
-    }
 
+    } else {
+
+        submit.setAttribute("data-target", "#exampleModal")
+
+    }
     /* ----- Display Array ---- */
 
     show()
@@ -70,7 +93,7 @@ function add() {// submit function for button
 }
 
 function pushing(v1, v2, v3) {
-    console.log(v2);
+    (v2);
     arrStor.push({
         site: v1,
         url: v2,
@@ -92,18 +115,14 @@ function show() { //display array
 
     for (let i = 0; i < arrStor.length; i++) {
         if (!arrStor[i].url.includes("https://")) {
-
+            //lazm ngm3 kol el data l2n htt3red mra wa7da fe el refresh
             newarr += JSOND(arrStor[i].site, arrStor[i].note, "https://" + arrStor[i].url, i, i)
-            console.log("hhtp");
-
         } else {
             newarr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
-            console.log("no http");
         }
-        //lazm ngm3 kol el data l2n htt3red mra wa7da fe el refresh
     }
 
-    document.getElementById("lenghtOfIndex").textContent ='# '+arrStor.length
+    document.getElementById("lenghtOfIndex").textContent = '# ' + arrStor.length
     table.innerHTML = newarr
 
     localStorage.setItem("myStorage", JSON.stringify(arrStor))
@@ -134,7 +153,7 @@ function btnubdate() {
     arrStor[avelIndex].note = note.value
     show()
     avelIndex = null
-    console.log(arrStor);
+        .log(arrStor);
     submit.onclick = add;
     clear()
 }
@@ -149,7 +168,7 @@ function delet(index) {
     function doIt() {
         arrStor.splice(index, 1)
         show()
-        console.log(index);
+
     }
 
     btnmode.onclick = doIt
@@ -161,7 +180,7 @@ function deletall(index) {
 
         arrStor.splice(index, arrStor.length)
         show()
-        console.log(index);
+
     }
 
 }
@@ -180,7 +199,6 @@ function search(val) {
                 arrStor[i]["indexr"] = i
                 if (arrStor[i].site.includes(val)) {
                     arr += JSOND(arrStor[i].site, arrStor[i].note, arrStor[i].url, i, i)
-                    console.log(arrStor[i].site.includes(val));
                     TorF = true
                 }
             }
