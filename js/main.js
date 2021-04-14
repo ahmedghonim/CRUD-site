@@ -59,7 +59,10 @@ function add() {// submit function for button
                     alert("this 'URL' is oredy exist")
 
                 }
+
+                /* ---- For End Of Loop --- */
                 i = arrStor.length
+                /* ---- For End Of Loop --- */
             }
         }
         if (!doit) {
