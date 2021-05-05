@@ -179,7 +179,7 @@ function delet(index) {
 
 
 function deletall(index) {
-    if (confirm("you will delet evrey think")) {
+    if (confirm("you will delet evreything")) {
 
         arrStor.splice(index, arrStor.length)
         show()
